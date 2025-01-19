@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class Meat : Ingredient
+public class CookedMeat : Ingredient
 {
     public override Ingredient improveIngredient()
     {
-        return new CookedMeat(); 
+        return this; 
     }
 
     public override void useIngredient()
     {
-        Debug.Log("Using meat.");
+        Debug.Log("Using cooked meat.");
     }
 }
