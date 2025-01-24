@@ -1,5 +1,10 @@
 [System.Serializable]
-public abstract class Appliance
+public class Appliance : Interactable
 {
-    public abstract bool canUseIngredient(Ingredient ingredient);
+    public bool canUseIngredient(Ingredient ingredient) {
+        return false;
+    }
+    public override void executeAction(PlayerController player) {
+        return;
+    }
 }
