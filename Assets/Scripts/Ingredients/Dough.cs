@@ -18,8 +18,6 @@ public class Dough : Ingredient
 
     public override Ingredient GetIngredient()
     {
-        GameObject doughObject = new GameObject("Dough");
-        Dough newDough = doughObject.AddComponent<Dough>();
-        return newDough;
+        return new Dough();
     }
 }
