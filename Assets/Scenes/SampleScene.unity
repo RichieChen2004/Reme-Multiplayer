@@ -8544,6 +8544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrderSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 2549267916768588568, guid: 7a8b82995b3b95a49be2dda02aca868d, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 4732585574111872613, guid: 7a8b82995b3b95a49be2dda02aca868d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.3
