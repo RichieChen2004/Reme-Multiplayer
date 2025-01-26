@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class OrderSystem : MonoBehaviour
+public class OrderSystem : Interactable
 {
     public float orderFrequency = 5f; // Frequency in seconds to add a new order
     public List<Order> availableOrders; 
@@ -42,4 +42,35 @@ public class OrderSystem : MonoBehaviour
 
         Debug.Log("Added a new order to currentOrders.");
     }
+
+    public override void executeAction(PlayerController player)
+    {  
+        // Ensure player has held item
+        if (player.heldIngredient != null)
+        {
+            Debug.Log("Player is holding an item");
+            for (int i = 0; i < currentOrders.Count; i++)
+            {
+                // Check if the player is holding the correct plate for the order
+                // Shit way of doing this maybe change if optimisations needed
+                if (currentOrders[i].isOrderComplete(player.heldIngredient))
+                {
+                    currentOrders.Remove(currentOrders[i]);
+                    break; 
+                }
+            }
+        }
+        else{
+            Debug.LogWarning("you dont have anything lol");
+        }
+        Debug.Log("Intereact");
+    }
+
+    // public void completeOrder(Order order)
+    // {
+    //     // Remove the order from currentOrders
+    //     currentOrders.Remove(order);
+
+    //     Debug.Log("Completed order");
+    // }
 }

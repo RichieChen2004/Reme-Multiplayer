@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Ingredient heldIngredient;
     private Storage nearbyStorage; // Keep track of the nearby Storage object
 
+    private Interactable nearbyInteractable;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,9 +22,9 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
 
         // Check for interaction input
-        if (Input.GetKeyDown(KeyCode.E) && nearbyStorage != null)
+        if (Input.GetKeyDown(KeyCode.E) && nearbyInteractable != null)
         {
-            nearbyStorage.executeAction(this);
+            nearbyInteractable.executeAction(this);
         }
     }
 
@@ -33,19 +35,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if entering a Storage trigger
-        if (other.CompareTag("Storage"))
+        if (other.CompareTag("Interactable"))
         {
-            nearbyStorage = other.GetComponent<Storage>();
+            nearbyInteractable = other.GetComponent<Interactable>();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Clear the reference when leaving the trigger
-        if (other.CompareTag("Storage"))
+        if (other.CompareTag("Interactable"))
         {
-            nearbyStorage = null;
+            nearbyInteractable = null;
         }
     }
 }
