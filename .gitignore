@@ -72,3 +72,4 @@ crashlytics-build.properties
 
 # IGNORE VSCODE FUCK THIS SHIT!!!
 .vscode/settings.json
+.vscode/settings.json
