@@ -71,4 +71,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # IGNORE VSCODE FUCK THIS SHIT!!!
-/.vscode
+.vscode/settings.json
